@@ -79,7 +79,7 @@ export function WhatsAppWidget({
       )}
 
       {!isOpen && (
-        <span className="border border-black/10 bg-white px-3 py-2 text-xs font-bold text-ink shadow-md">
+        <span className="hidden border border-black/10 bg-white px-3 py-2 text-xs font-bold text-ink shadow-md sm:block">
           Chat with dispatch 24/7!
         </span>
       )}
@@ -93,21 +93,26 @@ export function WhatsAppWidget({
         aria-expanded={isOpen}
         aria-controls="whatsapp-chat-options"
         onClick={() => setIsOpen((open) => !open)}
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 focus-visible:outline-white"
+        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 focus-visible:outline-white sm:h-14 sm:w-14"
       >
         {isOpen ? (
-          <X size={25} aria-hidden="true" />
+          <X size={22} className="sm:h-[25px] sm:w-[25px]" aria-hidden="true" />
         ) : (
           <>
-            <MessageCircle size={29} strokeWidth={2.2} aria-hidden="true" />
+            <MessageCircle
+              size={25}
+              className="sm:h-[29px] sm:w-[29px]"
+              strokeWidth={2.2}
+              aria-hidden="true"
+            />
             <Phone
               size={13}
               strokeWidth={3}
               aria-hidden="true"
-              className="absolute left-[22px] top-[22px]"
+              className="absolute left-[18px] top-[18px] sm:left-[22px] sm:top-[22px]"
             />
             <span
-              className="absolute right-0 top-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#d92f32]"
+              className="absolute right-0 top-0 h-3 w-3 rounded-full border-2 border-white bg-[#d92f32] sm:h-3.5 sm:w-3.5"
               aria-hidden="true"
             >
               <span className="absolute inset-0 animate-ping rounded-full bg-[#d92f32] opacity-60 motion-reduce:animate-none" />

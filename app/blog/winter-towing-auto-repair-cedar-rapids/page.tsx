@@ -7,7 +7,7 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import { BrandLogo } from "@/components/BrandLogo";
+import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { business } from "@/lib/business";
 import { winterGuide } from "@/lib/blog";
@@ -110,18 +110,7 @@ export default function WinterTowingGuidePage() {
           __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <header className="border-b border-white/10 bg-ink text-white">
-        <div className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <BrandLogo />
-          <a
-            href={`tel:${business.phone}`}
-            className="inline-flex min-h-11 items-center gap-2 bg-signal px-3 text-xs font-extrabold text-white hover:bg-[#bd2529] sm:px-4 sm:text-sm"
-          >
-            <Phone size={16} aria-hidden="true" />
-            <span>{business.phoneDisplay}</span>
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="bg-ink text-white">

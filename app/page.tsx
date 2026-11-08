@@ -17,7 +17,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { ServiceArea } from "@/components/ServiceArea";
-import { BrandLogo } from "@/components/BrandLogo";
+import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { business, locationLabel } from "@/lib/business";
 import { services } from "@/lib/services";
@@ -37,44 +37,7 @@ const serviceIcons = {
 export default function HomePage() {
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-ink text-white shadow-lg shadow-black/10">
-        <div className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <BrandLogo />
-          <nav
-            className="hidden items-center gap-7 text-sm font-semibold text-white/70 md:flex"
-            aria-label="Main navigation"
-          >
-            <a href="#services" className="transition-colors hover:text-white">
-              Services
-            </a>
-            <a
-              href="#service-area"
-              className="transition-colors hover:text-white"
-            >
-              Service area
-            </a>
-            <Link href="/blog" className="transition-colors hover:text-white">
-              Driver guides
-            </Link>
-            <Link href="/about" className="transition-colors hover:text-white">
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="transition-colors hover:text-white"
-            >
-              Contact
-            </Link>
-          </nav>
-          <a
-            href={`tel:${business.phone}`}
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-signal px-3 text-xs font-extrabold text-white transition-colors hover:bg-[#bd2529] sm:px-4 sm:text-sm"
-          >
-            <Phone size={16} aria-hidden="true" />
-            <span>{business.phoneDisplay}</span>
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="relative overflow-hidden bg-ink text-white">
