@@ -16,4 +16,14 @@ Before launch, verify the phone number, street address, city/state, service area
 - `npm run typecheck`
 - `npm run build`
 
+## Cloudflare Workers
+
+This project uses OpenNext for Cloudflare. The adapter generates the Worker
+entrypoint at `.open-next/worker.js` and static assets at `.open-next/assets`.
+Wrangler runs `npm run cf-build` automatically through its configured build
+hook, so both `npm run deploy` and `npx wrangler deploy` generate the entrypoint
+before deployment. For Cloudflare Git builds, use `npx wrangler deploy` as the
+deploy command. The self-service binding in `wrangler.toml` targets the Worker
+name `buruktowingautoservices`.
+
 The site emits LocalBusiness JSON-LD only when required location details and coordinates have been configured. Do not deploy with the example placeholders.
