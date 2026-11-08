@@ -20,10 +20,19 @@ Before launch, verify the phone number, street address, city/state, service area
 
 This project uses OpenNext for Cloudflare. The adapter generates the Worker
 entrypoint at `.open-next/worker.js` and static assets at `.open-next/assets`.
-Wrangler runs `npm run cf-build` automatically through its configured build
-hook, so both `npm run deploy` and `npx wrangler deploy` generate the entrypoint
-before deployment. For Cloudflare Git builds, use `npx wrangler deploy` as the
-deploy command. The self-service binding in `wrangler.toml` targets the Worker
-name `buruktowingautoservices`.
+Configure Cloudflare Workers Builds to use `npm run deploy` as its deploy
+command; this script builds the app with OpenNext and then deploys through the
+matching adapter CLI. Do not configure a bare `npx wrangler deploy` command
+for this Next.js app. The self-service binding in `wrangler.toml` targets the
+Worker name `buruktowingautoservices`.
+
+## Cloudflare Pages
+
+The same site can be deployed to Pages as a static export. Create a Pages
+project from this repository and set the build command to `npm run build` and
+the output directory to `out`. Cloudflare sets `CF_PAGES=1` during its build,
+which switches Next.js to static export mode. The Pages response headers are in
+`public/_headers`. Because Pages is static hosting, use Workers deployment when
+you need server-side Next.js features or runtime APIs.
 
 The site emits LocalBusiness JSON-LD only when required location details and coordinates have been configured. Do not deploy with the example placeholders.
